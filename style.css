@@ -25,53 +25,89 @@ body {
 /* Navbar */
 .navbar {
     background: linear-gradient(135deg, var(--primary-green), var(--dark-green)) !important;
-    box-shadow: 0 2px 20px rgba(0, 217, 62, 0.3);
-    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px rgba(0, 217, 62, 0.25);
+    transition: all 0.4s ease;
     padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* 🌿 BRAND LOGO / TEXT */
 .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--white) !important;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .navbar-brand:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    color: #e9ffe9 !important;
 }
 
+/* 🌿 NAV LINKS */
 .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
     font-weight: 500;
-    margin: 0 0.5rem;
+    margin: 0 0.75rem;
     position: relative;
     transition: all 0.3s ease;
+    letter-spacing: 0.3px;
 }
 
+/* 🌿 Underline animation */
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 2px;
     background: var(--white);
+    border-radius: 2px;
     transition: width 0.3s ease;
 }
 
+/* 🌿 Hover and Active state */
 .nav-link:hover::after,
 .nav-link.active::after {
-    width: 80%;
+    width: 70%;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: var(--white) !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-/* Hero Section */
+/* 🌿 Responsive toggle button */
+.navbar-toggler {
+    border: none !important;
+    outline: none !important;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* 🌿 Responsive dropdown (for mobile) */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-link {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    .nav-link::after {
+        bottom: -2px;
+    }
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
